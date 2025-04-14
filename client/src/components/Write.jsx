@@ -8,7 +8,7 @@ function Write({ sentence, setSentence, selectedFeature, setSelectedFeature }) {
   const handleSpellChecker = async () => {
     setLoading(true);
     try {
-      const res = await fetch("http://localhost:9025/api/spellchecker", {
+      const res = await fetch("http://localhost:8080/api/spellchecker", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ sentence }),
@@ -26,7 +26,7 @@ function Write({ sentence, setSentence, selectedFeature, setSelectedFeature }) {
   const handleGrammarChecker = async () => {
     setLoading(true);
     try {
-      const res = await fetch("http://localhost:9025/api/grammerchecker", {
+      const res = await fetch("http://localhost:8080/api/grammerchecker", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ sentence }),
@@ -40,8 +40,6 @@ function Write({ sentence, setSentence, selectedFeature, setSelectedFeature }) {
       setLoading(false);
     }
   };
-
-  // Trigger function when selectedFeature changes
 
   useEffect(() => {
     if (selectedFeature === "Spellchecker") {
@@ -66,7 +64,6 @@ function Write({ sentence, setSentence, selectedFeature, setSelectedFeature }) {
       ></textarea>
 
       <div className="flex gap-5 mt-5">
-        {/* Spellchecker Section */}
         <div className="flex-1 bg-gray-100 p-5 rounded-xl shadow-xl">
           <button
             className="w-30 ml-30 p-2 bg-blue-600 text-white rounded-lg transition-transform duration-500 hover:-translate-y-2"
@@ -83,7 +80,6 @@ function Write({ sentence, setSentence, selectedFeature, setSelectedFeature }) {
           ) : null}
         </div>
 
-        {/* Grammarchecker Section */}
         <div className="flex-1 bg-gray-100 p-5 rounded-xl shadow-xl">
           <button
             className="w-40 p-2 bg-blue-600 text-white rounded-lg rounded-xl ml-26"

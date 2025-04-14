@@ -1,10 +1,12 @@
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
-const Analysrouter = require("./routes/analysis");
-const Spellchecker = require("./routes/spellchecker");
-const Grammarchecker = require("./routes/grammarchecker");
+const Analysrouter = require("./routes/analysis.js");
+const Spellchecker = require("./routes/spellchecker.js");
+const Grammarchecker = require("./routes/grammarchecker.js");
+const authRouter = require("./routes/authRouter.js");
 const app = express();
+require("./models/dbConnect.js");
 const PORT = process.env.PORT || 3000;
 Grammarchecker;
 Analysrouter;
@@ -18,6 +20,7 @@ app.use(express.json());
 app.use("/api/analys", Analysrouter);
 app.use("/api/spellchecker", Spellchecker);
 app.use("/api/grammerchecker", Grammarchecker);
+app.use("/auth", authRouter);
 app.listen(PORT, () => {
   console.log(`server is runnnig in ${PORT}`);
 });

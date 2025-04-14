@@ -6,6 +6,8 @@ import Home from "./components/Home";
 import Write from "./components/Write";
 import Login from "./components/Login";
 import { useState } from "react";
+import Pagenotfound from "./components/Pagenotfound";
+import { GoogleOAuthProvider } from "@react-oauth/google";
 
 function App() {
   const [selectedFeature, setSelectedFeature] = useState("");
@@ -13,6 +15,13 @@ function App() {
   const handleFeatureClick = (feature) => {
     console.log("Clicked:", feature);
     setSelectedFeature(feature);
+  };
+  const GoogleAuthWrapper = () => {
+    return (
+      <GoogleOAuthProvider clientId="369822006678-ssbq670fr6bpoof70t3jnvfh9p02j6bf.apps.googleusercontent.com">
+        <Login />
+      </GoogleOAuthProvider>
+    );
   };
   return (
     <div className="h-143 w-317  ml-5 ">
@@ -39,7 +48,8 @@ function App() {
                   />
                 }
               />
-              <Route path="/login" element={<Login />} />
+              <Route path="/login" element={<GoogleAuthWrapper />} />
+              <Route path="*" element={<Pagenotfound />} />
             </Routes>
           </div>
           <Answers
