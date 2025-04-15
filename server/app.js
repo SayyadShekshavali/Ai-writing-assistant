@@ -12,7 +12,6 @@ Grammarchecker;
 Analysrouter;
 Spellchecker;
 
-//* https://api.openai.com/v1/chat/completions
 //! Middlewares
 app.use(cors());
 app.use(express.json());
