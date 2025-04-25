@@ -9,7 +9,6 @@ const googlelogin = async (req, res) => {
     if (code) {
       const googleRes = await oauth2client.getToken(code);
       oauth2client.setCredentials(googleRes);
-
       const userRes = await axios.get(
         `https://www.googleapis.com/oauth2/v2/userinfo?access_token=${googleRes.tokens.access_token}`
       );

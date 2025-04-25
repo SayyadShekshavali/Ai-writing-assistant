@@ -10,13 +10,11 @@ Analysrouter.post("/", async (req, res) => {
   try {
     const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
 
-    // Correct way to send a single request
     const result = await model.generateContent(
       "Rephrase the following sentence into three different variations without any extratext only answer:\n\n" +
         sentence
     );
 
-    // Extracting the response properly
     const responseText =
       result.response.candidates[0]?.content?.parts[0]?.text ||
       "No response generated";
