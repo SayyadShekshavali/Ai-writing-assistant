@@ -15,7 +15,7 @@ function Answers({ selectedFeature, setSelectedFeature, sentence }) {
     setError(null);
 
     try {
-      const res = await fetch("http://localhost:8080/api/analys", {
+      const res = await fetch("https://ai-writing-assistant-mnqz.onrender.com", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
