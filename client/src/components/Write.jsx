@@ -26,7 +26,7 @@ function Write({ sentence, setSentence, selectedFeature, setSelectedFeature }) {
   const handleGrammarChecker = async () => {
     setLoading(true);
     try {
-      const res = await fetch("https://ai-writing-assistant-mnqz.onrender.com", {
+      const res = await fetch("https://ai-writing-assistant-mnqz.onrender.com/api/grammerchecker", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ sentence }),
