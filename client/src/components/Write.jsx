@@ -8,7 +8,7 @@ function Write({ sentence, setSentence, selectedFeature, setSelectedFeature }) {
   const handleSpellChecker = async () => {
     setLoading(true);
     try {
-      const res = await fetch("http://localhost:8080/api/spellchecker", {
+      const res = await fetch("https://ai-writing-assistant-mnqz.onrender.com", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ sentence }),
@@ -26,7 +26,7 @@ function Write({ sentence, setSentence, selectedFeature, setSelectedFeature }) {
   const handleGrammarChecker = async () => {
     setLoading(true);
     try {
-      const res = await fetch("http://localhost:8080/api/grammerchecker", {
+      const res = await fetch("https://ai-writing-assistant-mnqz.onrender.com", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ sentence }),
